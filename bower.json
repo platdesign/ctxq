@@ -1,0 +1,8 @@
+{
+  "name": "ctxq",
+  "description": "simple promise queue with context",
+  "author": "Christian Blaschke <mail@platdesign.de>",
+  "version": "0.0.0",
+  "dependencies": {}
+}
+
