@@ -4,5 +4,6 @@
   "author": "Christian Blaschke <mail@platdesign.de>",
   "version": "0.0.0",
   "dependencies": {},
-  "repository":""
+  "repository":"git@github.com:platdesign/ctxq.git",
+  "homepage":"https://github.com/platdesign/ctxq"
 }
