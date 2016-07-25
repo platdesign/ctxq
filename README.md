@@ -12,11 +12,11 @@ Simple promise queue with context.
 
 ## `ctxq.push(key, handler)`
 
-Result of handler will be assigned as `key` in `context`.
+Result of handler (wrapped in `Promise.resolve`) will be assigned as `key` in `context`. Returns ctxq instance for method chaining.
 
 ## `ctxq.push(handler)`
 
-Result of handler will not be assigned to `context`.
+Result of handler (wrapped in `Promise.resolve`) will not be assigned to `context`. Returns ctxq instance for method chaining.
 
 
 ## `ctxq.run(context)`
@@ -31,13 +31,13 @@ const CQ = require('ctxq');
 
 const queue = CQ();
 
-queue.push('user', (ctx) => db.createUser(ctx.input.user));
-queue.push((ctx) => email.sendMail('welcome', ctx.user));
-queue.push('profile', (ctx) => db.createProfileForUser(ctx.user));
-
-queue.run({ input: { user:{ /*...*/ }}})
-.then((ctx) => ctx.user)
-.then(reply, reply);
+queue
+	.push('user', (ctx) => db.createUser(ctx.input.user))
+	.push((ctx) => email.sendMail('welcome', ctx.user))
+	.push('profile', (ctx) => db.createProfileForUser(ctx.user))
+	.run({ input: { user:{ /*...*/ }}})
+	.then((ctx) => ctx.user)
+	.then(reply, reply);
 ```
 
 
