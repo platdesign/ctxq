@@ -13,6 +13,7 @@ module.exports = function ctxq() {
 			}
 			return key(scope);
 		});
+		return this;
 	};
 
 	service.run = function(scope) {
