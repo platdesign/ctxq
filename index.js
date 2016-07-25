@@ -9,7 +9,7 @@ module.exports = function ctxq() {
 	service.push = function(key, fn) {
 		queue.push((scope) => {
 			if (key && fn) {
-				return fn(scope).then((res) => scope[key] = res);
+				return Promise.resolve(fn(scope)).then((res) => scope[key] = res);
 			}
 			return key(scope);
 		});
