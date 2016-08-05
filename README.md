@@ -2,6 +2,8 @@
 
 Simple promise queue with context.
 
+[![Build Status](https://travis-ci.org/platdesign/ctxq.svg?branch=master)](https://travis-ci.org/platdesign/ctxq)
+
 
 # Install
 
