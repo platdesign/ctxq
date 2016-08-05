@@ -2,7 +2,7 @@
   "name": "ctxq",
   "description": "simple promise queue with context",
   "author": "Christian Blaschke <mail@platdesign.de>",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "git@github.com:platdesign/ctxq.git",
   "homepage": "https://github.com/platdesign/ctxq",
   "devDependencies": {
