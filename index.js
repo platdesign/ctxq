@@ -19,7 +19,11 @@ module.exports = function ctxq() {
 	service.run = function(scope) {
 		scope = scope || {};
 
-		return queue.reduce((p, fn) => p.then(() => fn(scope)), Promise.resolve()).then(() => scope);
+		return Promise.resolve(scope)
+			.then((_scope) =>
+				queue.reduce((p, fn) => p.then(() => fn(_scope)), Promise.resolve()).then(() => _scope)
+			);
+
 	};
 
 	return service;
