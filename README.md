@@ -21,7 +21,7 @@ Result of handler (wrapped in `Promise.resolve`) will not be assigned to `contex
 
 ## `ctxq.run(context)`
 
-Runs the queue in the same order as handlers are pushed to it. Each handler will be called with `context` as argument. 
+Runs the queue in the same order as handlers are pushed to it. Each handler will be called with `context` as argument. If `context` is a promise it will be resolved before queue is executed. This helps to chain multiple queues which should share same scope.
 
 
 # Example
