@@ -16,14 +16,24 @@ module.exports = function ctxq() {
 		return this;
 	};
 
-	service.run = function(scope) {
+	service.run = function(scope, errorTransform) {
 		scope = scope || {};
 
 		return Promise.resolve(scope)
 			.then((_scope) =>
-				queue.reduce((p, fn) => p.then(() => fn(_scope)), Promise.resolve()).then(() => _scope)
+				queue.reduce((p, fn) =>
+					p.then(() => fn(_scope)
+				), Promise.resolve())
+				.then(
+					() => _scope,
+					(err) => {
+							if(errorTransform) {
+								return Promise.resolve(errorTransform(err, _scope));
+							}
+							return Promise.reject(err);
+					}
+				)
 			);
-
 	};
 
 	return service;
