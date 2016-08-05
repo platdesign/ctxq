@@ -3,7 +3,10 @@
   "description": "simple promise queue with context",
   "author": "Christian Blaschke <mail@platdesign.de>",
   "version": "0.1.3",
-  "dependencies": {},
   "repository": "git@github.com:platdesign/ctxq.git",
-  "homepage": "https://github.com/platdesign/ctxq"
+  "homepage": "https://github.com/platdesign/ctxq",
+  "devDependencies": {
+    "code": "^3.0.2",
+    "mocha": "^3.0.1"
+  }
 }
